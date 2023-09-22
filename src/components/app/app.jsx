@@ -18,6 +18,13 @@ class App extends Component {
       ],
     };
   }
+  addEmployee = (item) => {
+    this.setState(({data})=>{
+     return {
+      data: [...data, item]
+     }
+    })
+   }
 
   deleteItem = (id) => {
     this.setState(({ data }) => {
@@ -37,7 +44,7 @@ class App extends Component {
           <AppFilter />
         </div>
         <EmployeesList data={data} onDelete={this.deleteItem} />
-        <EmployeesAddForm />
+        <EmployeesAddForm addEmployee={this.addEmployee} />
       </div>
     );
   }
