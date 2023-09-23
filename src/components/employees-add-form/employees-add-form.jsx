@@ -19,6 +19,7 @@ class EmployeesAddForm extends Component {
   };
   submitForm = (e)=>{
     e.preventDefault();
+    if(this.state.name.length<2 || !this.state.salary) return;
     this.props.addEmployee(this.state)
     this.setState(({id})=>({
       id:id+1,
